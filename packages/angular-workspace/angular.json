@@ -1,0 +1,234 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "component-library": {
+      "projectType": "library",
+      "root": "projects/component-library",
+      "sourceRoot": "projects/component-library/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/component-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/component-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/component-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/component-library/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "user-admin-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/user-admin-app",
+      "sourceRoot": "projects/user-admin-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/user-admin-app",
+            "index": "projects/user-admin-app/src/index.html",
+            "main": "projects/user-admin-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/user-admin-app/tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/user-admin-app/src/favicon.ico",
+              "projects/user-admin-app/src/assets"
+            ],
+            "styles": [
+              "projects/user-admin-app/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "user-admin-app:build:production"
+            },
+            "development": {
+              "browserTarget": "user-admin-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "user-admin-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/user-admin-app/tsconfig.spec.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/user-admin-app/src/favicon.ico",
+              "projects/user-admin-app/src/assets"
+            ],
+            "styles": [
+              "projects/user-admin-app/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "users-module": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/users-module",
+      "sourceRoot": "projects/users-module/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/users-module",
+            "index": "projects/users-module/src/index.html",
+            "main": "projects/users-module/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/users-module/tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/users-module/src/favicon.ico",
+              "projects/users-module/src/assets"
+            ],
+            "styles": [
+              "projects/users-module/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "users-module:build:production"
+            },
+            "development": {
+              "browserTarget": "users-module:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "users-module:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/users-module/tsconfig.spec.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/users-module/src/favicon.ico",
+              "projects/users-module/src/assets"
+            ],
+            "styles": [
+              "projects/users-module/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  }
+}

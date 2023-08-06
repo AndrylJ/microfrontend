@@ -1,0 +1,17 @@
+<section class="form-page">
+  <h1>{{title}}</h1>
+
+  <paper-component>
+    <form [formGroup]="formGroup" (ngSubmit)="handleSubmit(formGroup.value, uuid)">
+      <div class="paper__content">
+        <input-component appAccessor formControlName="name" label="Nombre:" />
+        <input-component appAccessor formControlName="lastName" label="Apellidos:" />
+        <input-component appAccessor formControlName="email" type="email" label="Email:" />
+        <input-component appAccessor formControlName="birthdate" type="date" label="Fecha de nacimiento:" />
+      </div>
+      <div class="paper__actions">
+        <button class="button" type="submit" hidden>Enviar</button>
+      </div>
+    </form>
+  </paper-component>
+</section>

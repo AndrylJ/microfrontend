@@ -1,0 +1,29 @@
+.form-page
+  padding: 20px
+  display: grid
+  columns: repeat(auto, 2)
+  gap: 10px
+
+.paper__content
+  padding: 20px
+  display: grid
+
+.paper__actions
+  justify-content: flex-end
+  padding: 0 20px 20px 20px
+  display: grid
+
+.button
+  border: none
+  border-radius: 100px
+  display: flex
+  align-items: center
+  min-width: 64px
+  background-color: transparent
+  text-decoration: none
+  padding: 5px 15px
+  color: white
+  transition: box-shadow ease-in .15s, opacity ease-in .15s
+  background-color: #05BE50
+  &:not(.button--disabled):hover
+    opacity: .9

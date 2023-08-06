@@ -1,0 +1,7 @@
+:host
+  $radius: 10px
+  display: table-row
+  ::slotted(:first-child)
+    border-radius: $radius 0 0 $radius
+  ::slotted(:last-child)
+    border-radius: 0 $radius $radius 0

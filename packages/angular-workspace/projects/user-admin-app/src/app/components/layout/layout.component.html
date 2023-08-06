@@ -1,0 +1,28 @@
+<div class="layout">
+  <div class="sidenav">
+    <a [href]="homeRoute" class="logo">
+      <img src="assets/interbank.svg">
+    </a>
+    <div class="sidenav__body">
+      <menu-component>
+        <menu-section label="Usuarios">
+          <menu-item href="/">
+            <app-people class="icon" />
+            Usuarios
+          </menu-item>
+        </menu-section>
+        <menu-section label="Cuenta">
+          <menu-item class="menu-item">
+            <app-person class="icon" />
+            Perfil
+          </menu-item>
+          <menu-item class="menu-item">
+            <app-password class="icon" />
+            Contraseña
+          </menu-item>
+        </menu-section>
+      </menu-component>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</div>

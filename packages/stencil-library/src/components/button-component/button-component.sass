@@ -1,0 +1,83 @@
+:host
+  display: flex
+
+.button
+  border: none
+  border-radius: 100px
+  display: flex
+  align-items: center
+  min-width: 64px
+  background-color: transparent
+  text-decoration: none
+  &--size-small
+    padding: 3px 9px
+  &--size-medium
+    padding: 5px 15px
+  &--size-large
+    padding: 7px 21px
+
+.button--contained
+  color: white
+  transition: box-shadow ease-in .15s, opacity ease-in .15s,
+  @include elevation(1)
+  &-primary
+    background-color: $color-primary
+  &-secondary
+    background-color: $color-secondary
+  &-error
+    background-color: $color-error
+  &-success
+    background-color: $color-success
+  &-warning
+    background-color: $color-warning
+  &.button--disabled
+    color: rgba(black, .3)
+    background-color: rgba(black, .12)
+  &:not(.button--disabled):hover
+    opacity: .9
+    @include elevation(3)
+
+.button--outlined
+  transition: background-color ease-in .15s
+  &-primary
+    $color: $color-primary
+    color: $color
+    border: 1px solid $color
+    &:hover
+      background-color: rgba($color, 0.05)
+  &-secondary
+    $color: $color-secondary
+    color: $color
+    border: 1px solid $color
+    &:hover
+      background-color: rgba($color, 0.05)
+  &-error
+    $color: $color-error
+    color: $color
+    border: 1px solid $color
+    &:hover
+      background-color: rgba($color, 0.05)
+  &-success
+    $color: $color-success
+    color: $color
+    border: 1px solid $color
+    &:hover
+      background-color: rgba($color, 0.05)
+  &-warning
+    $color: $color-warning
+    color: $color
+    border: 1px solid $color
+    &:hover
+      background-color: rgba($color, 0.05)
+  &.button--disabled
+    color: rgba(black, .12)
+    border: 1px solid rgba(black, .12)
+
+.button__icon
+  fill: currentColor
+  max-width: 24px
+  max-height: 24px
+  &--start
+    margin-right: 5px
+  &--end
+    margin-left: 5px
